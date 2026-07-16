@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/layout";
 import { FadeIn } from "@/components/animations";
 import { ArrowUpRight } from "lucide-react";
+import { Marquee } from "@/components/marquee/Marquee";
 
 const footerNavItems = [
   { name: "Inicio", href: "/" },
@@ -87,11 +88,16 @@ export function Footer() {
           </div>
 
           {/* Oversized wordmark */}
-          <div className="mt-20 border-t border-border pt-10">
-            <p className="font-display text-[19vw] font-900 uppercase leading-[0.8] tracking-[-0.05em] text-primary desktop:text-[16vw]">
-              QuickPages
-            </p>
-          </div>
+          <div className="mt-20 border-t border-border pt-10 overflow-hidden">
+  <Marquee
+    items={[
+      "QuickPages",
+      "QuickPages",
+      "QuickPages",
+      "QuickPages",
+    ]}
+  />
+</div>
 
           {/* Bottom row */}
           <div className="mt-10 flex flex-col items-start justify-between gap-4 tablet:flex-row tablet:items-center">

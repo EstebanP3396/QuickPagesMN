@@ -82,16 +82,7 @@ export default function Home() {
           </Parallax>
         </div>
 
-        <Container className="relative pt-28 tablet:pt-32">
-          <FadeIn delay={0.1}>
-            <div className="flex items-center justify-between border-b border-border pb-6 font-display text-small font-500 uppercase tracking-[0.2em] text-secondary">
-              <span>Estudio Web Creativo</span>
-              <span className="hidden tablet:block">/</span>
-              <span>MX — 2026</span>
-            </div>
-          </FadeIn>
-        </Container>
-
+       
         <Container className="relative flex flex-1 items-center py-12 tablet:py-16">
           <h1 className="w-full font-display font-900 uppercase leading-[0.82] tracking-[-0.04em] text-primary">
             <SlideUp delay={0.2} distance={60}>
@@ -311,7 +302,7 @@ export default function Home() {
             </div>
           </SlideUp>
 
-          <SlideUp delay={0.1} distance={40}>
+          <SlideUp delay={0.1} distance={60}>
             <ProcessTimeline
               steps={[
                 {

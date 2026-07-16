@@ -81,15 +81,13 @@ export function ProcessTimeline({ steps, className = "" }: ProcessTimelineProps)
               <div className={`flex flex-col items-center justify-center transition-all duration-700 px-6 text-center ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-50 translate-y-4"
               }`}>
-                <Heading 
-                  level="h3" 
-                  size="section-title" 
-                  className={`mb-5 transition-colors duration-700 leading-tight font-semibold text-center ${
+               <h3
+                  className={`text-3xl font-semibold leading-tight text-center mb-5 transition-colors duration-700 ${
                     isVisible ? "text-primary" : "text-muted"
                   }`}
                 >
                   {step.title}
-                </Heading>
+                </h3>
                 <Text 
                   size="body" 
                   color="secondary" 

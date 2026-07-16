@@ -70,11 +70,12 @@ export function Navbar() {
 
             <div className="hidden desktop:block">
               <a
-                href="mailto:hello@quickpages.com"
+                href="mailto:estecodez.dev@gmail.com"
                 className="group flex items-center gap-2 font-display text-small font-500 uppercase tracking-[0.12em] text-primary"
               >
                 <span className="inline-block h-2 w-2 animate-blink rounded-full bg-primary" />
-                hola@quickpages.com
+                estecodez.dev@gmail.com
+
               </a>
             </div>
 
