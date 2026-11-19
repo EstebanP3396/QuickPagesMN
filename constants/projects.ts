@@ -70,8 +70,8 @@ export const projects: Project[] = [
       "El sitio oficial de QuickPages: un estudio boutique que crea sitios web premium con perspectiva, diseño cuidado y un proceso claro de principio a fin.",
     services: ["Diseño", "Desarrollo", "Estrategia"],
     technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    href: "/",
-    previewUrl: "/services",
+    href: "https://quickpagesgt18-onuqd2l4u-estebanp3396s-projects.vercel.app/",
+    previewUrl: "https://quickpagesgt18-onuqd2l4u-estebanp3396s-projects.vercel.app/",
     sourceUrl: "#",
   },
 ];
