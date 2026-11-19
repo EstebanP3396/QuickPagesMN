@@ -11,7 +11,26 @@ interface ProjectPreviewProps {
   className?: string;
 }
 
+const STATIC_IMAGE_PATTERN = /\.(png|jpe?g|webp|avif)$/i;
+
 export function ProjectPreview({ url, title, className = "" }: ProjectPreviewProps) {
+  if (url.startsWith("/") && STATIC_IMAGE_PATTERN.test(url)) {
+    return (
+      <div className={`relative aspect-video overflow-hidden bg-surface-alt ${className}`}>
+        <img
+          src={url}
+          alt={`Vista previa de ${title}`}
+          loading="lazy"
+          className="h-full w-full object-cover object-top"
+        />
+      </div>
+    );
+  }
+
+  return <LivePreview url={url} title={title} className={className} />;
+}
+
+function LivePreview({ url, title, className = "" }: ProjectPreviewProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);

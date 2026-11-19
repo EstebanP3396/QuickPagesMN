@@ -71,7 +71,7 @@ export const projects: Project[] = [
     services: ["Diseño", "Desarrollo", "Estrategia"],
     technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
     href: "https://quickpagesgt18-onuqd2l4u-estebanp3396s-projects.vercel.app/",
-    previewUrl: "https://quickpagesgt18-onuqd2l4u-estebanp3396s-projects.vercel.app/",
+    previewUrl: "/projects/creative-web-studio.png",
     sourceUrl: "#",
   },
 ];
