@@ -11,30 +11,8 @@ import { Navbar, Footer, ScrollProgress } from "@/components/navigation";
 import { NoiseOverlay } from "@/components/backgrounds";
 import { Marquee } from "@/components/marquee/Marquee";
 import { IntroLoader } from "@/components/loader/IntroLoader";
-
-const projects = [
-  {
-    number: "01",
-    name: "Aura Skin Color",
-    category: "E-commerce · Marca",
-    year: "2025",
-    href: "https://aura-skin-color.vercel.app/",
-  },
-  {
-    number: "02",
-    name: "Sitio Web QuickPages",
-    category: "Identidad · Desarrollo",
-    year: "2025",
-    href: "https://quickpages-khaki.vercel.app/",
-  },
-  {
-    number: "03",
-    name: "Concepto QuickPages",
-    category: "Concepto · Landing",
-    year: "2024",
-    href: "https://landing-clients-ochre.vercel.app/",
-  },
-];
+import { ProjectPreview } from "@/components/projects/ProjectPreview";
+import { projects } from "@/constants/projects";
 
 const services = [
   {
@@ -198,14 +176,17 @@ export default function Home() {
           <div className="border-t border-border">
             {projects.map((project, index) => (
               <SlideUp key={project.number} delay={index * 0.08} distance={30}>
-                <a
-                  href={project.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative flex items-center justify-between overflow-hidden border-b border-border py-8 tablet:py-10"
-                >
+                <div className="group relative flex items-center justify-between gap-4 overflow-hidden border-b border-border py-8 tablet:py-10">
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 z-20"
+                  >
+                    <span className="sr-only">Ver {project.name}</span>
+                  </a>
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0 bg-surface transition-all duration-500 ease-out group-hover:h-full" />
-                  <div className="relative z-10 flex items-baseline gap-5 tablet:gap-10 px-2 tablet:px-6 transition-transform duration-500 group-hover:translate-x-2 tablet:group-hover:translate-x-4">
+                  <div className="pointer-events-none relative z-10 flex min-w-0 items-baseline gap-5 tablet:gap-10 px-2 tablet:px-6 transition-transform duration-500 group-hover:translate-x-2 tablet:group-hover:translate-x-4">
                     <span className="font-display text-small font-600 tracking-[0.1em] text-muted">
                       {project.number}
                     </span>
@@ -213,19 +194,24 @@ export default function Home() {
                       {project.name}
                     </span>
                   </div>
-                  <div className="relative z-10 flex items-center gap-6 px-2 tablet:px-6">
+                  <div className="pointer-events-none relative z-10 flex shrink-0 items-center gap-4 tablet:gap-6 px-2 tablet:px-6">
                     <span className="hidden font-display text-small font-500 uppercase tracking-[0.14em] text-secondary tablet:block">
-                      {project.category}
+                      {project.tagline}
                     </span>
                     <span className="hidden font-display text-small font-500 text-muted desktop:block">
                       {project.year}
                     </span>
+                    <ProjectPreview
+                      url={project.previewUrl}
+                      title={project.name}
+                      className="w-28 rounded-md border border-border tablet:w-44 desktop:w-56"
+                    />
                     <ArrowUpRight
                       className="h-6 w-6 shrink-0 text-primary transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 tablet:h-8 tablet:w-8"
                       strokeWidth={1.25}
                     />
                   </div>
-                </a>
+                </div>
               </SlideUp>
             ))}
           </div>

@@ -2,6 +2,7 @@ import { Badge } from "@/components/buttons";
 import { Heading, Text } from "@/components/typography";
 import { Button } from "@/components/buttons";
 import { Reveal } from "@/components/animations";
+import { ProjectPreview } from "@/components/projects/ProjectPreview";
 
 interface ProjectCardProps {
   number: string;
@@ -13,6 +14,7 @@ interface ProjectCardProps {
   technologies: string[];
   demoUrl?: string;
   sourceUrl?: string;
+  previewUrl?: string;
   className?: string;
 }
 
@@ -26,6 +28,7 @@ export function ProjectCard({
   technologies,
   demoUrl,
   sourceUrl,
+  previewUrl,
   className = "",
 }: ProjectCardProps) {
   return (
@@ -35,29 +38,32 @@ export function ProjectCard({
       {/* Subtle gradient overlay on hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent-subtle/0 via-transparent to-accent-subtle/0 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-700 pointer-events-none" />
       
-      {/* Visual Placeholder */}
-      <div className="aspect-video bg-surface-alt border-b border-border relative overflow-hidden">
-        <Reveal direction="up" delay={0.1}>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-full h-full bg-gradient-to-br from-surface to-surface-alt opacity-60 transition-opacity duration-700 group-hover:opacity-80" />
-          </div>
-        </Reveal>
-        <Reveal direction="up" delay={0.15}>
-          <div className="absolute inset-4 border border-border/60 rounded-lg bg-surface/80 backdrop-blur-sm shadow-subtle transition-all duration-700 group-hover:scale-105 group-hover:rotate-1 group-hover:shadow-glow-sm group-hover:border-accent/30">
-            <div className="h-8 border-b border-border/60 flex items-center gap-2 px-3">
-              <div className="w-3 h-3 rounded-full bg-border/60" />
-              <div className="w-3 h-3 rounded-full bg-border/60" />
-              <div className="w-3 h-3 rounded-full bg-border/60" />
+      {previewUrl ? (
+        <ProjectPreview url={previewUrl} title={name} className="border-b border-border" />
+      ) : (
+        <div className="aspect-video bg-surface-alt border-b border-border relative overflow-hidden">
+          <Reveal direction="up" delay={0.1}>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-full h-full bg-gradient-to-br from-surface to-surface-alt opacity-60 transition-opacity duration-700 group-hover:opacity-80" />
             </div>
-            <div className="p-4 space-y-3">
-              <div className="h-3 w-1/3 bg-border/60 rounded-full" />
-              <div className="h-2 w-full bg-border/60 rounded-full" />
-              <div className="h-2 w-2/3 bg-border/60 rounded-full" />
-              <div className="h-2 w-1/2 bg-border/60 rounded-full" />
+          </Reveal>
+          <Reveal direction="up" delay={0.15}>
+            <div className="absolute inset-4 border border-border/60 rounded-lg bg-surface/80 backdrop-blur-sm shadow-subtle transition-all duration-700 group-hover:scale-105 group-hover:rotate-1 group-hover:shadow-glow-sm group-hover:border-accent/30">
+              <div className="h-8 border-b border-border/60 flex items-center gap-2 px-3">
+                <div className="w-3 h-3 rounded-full bg-border/60" />
+                <div className="w-3 h-3 rounded-full bg-border/60" />
+                <div className="w-3 h-3 rounded-full bg-border/60" />
+              </div>
+              <div className="p-4 space-y-3">
+                <div className="h-3 w-1/3 bg-border/60 rounded-full" />
+                <div className="h-2 w-full bg-border/60 rounded-full" />
+                <div className="h-2 w-2/3 bg-border/60 rounded-full" />
+                <div className="h-2 w-1/2 bg-border/60 rounded-full" />
+              </div>
             </div>
-          </div>
-        </Reveal>
-      </div>
+          </Reveal>
+        </div>
+      )}
 
       <div className="p-8 tablet:p-12 relative">
         <div className="flex items-start justify-between mb-8">
