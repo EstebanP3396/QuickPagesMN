@@ -55,7 +55,7 @@ export const projects: Project[] = [
       "Una exploración temprana del lenguaje visual de QuickPages, enfocada en la estructura de landing pages modernas, jerarquía limpia y diseños orientados a la conversión.",
     services: ["Diseño", "Desarrollo"],
     technologies: ["React", "Tailwind CSS", "Vercel"],
-    href: "https://quickpagesmq-4cpt8glin-estebanp3396s-projects.vercel.app/",
+    href: "https://quickpagesmq.vercel.app/",
     previewUrl: "https://landing-clients-ochre.vercel.app/",
     sourceUrl: "#",
   },
